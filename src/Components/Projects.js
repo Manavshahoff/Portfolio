@@ -21,7 +21,7 @@ export const Projects = () => {
     {
       title: "SplitQuick",
       description: <p>"SplitQuick App"</p>,
-      imgUrl: projImg1,
+      imgUrl: projImg2,
     }
   ];
 
