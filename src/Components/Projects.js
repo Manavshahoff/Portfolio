@@ -20,7 +20,7 @@ export const Projects = () => {
   const app = [
     {
       title: "SplitQuick",
-      description: <p>"PlitQuick App"</p>,
+      description: <p>"SplitQuick App"</p>,
       imgUrl: projImg1,
     }
   ];
