@@ -413,11 +413,27 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 0 55px 55px 0;
 }
+.webapp-container {
+  display:flex;
+  flex-wrap: wrap; /*Ensures cards wrap to the next row if needed */
+  /* gap: 20px; Adds spacing between cards */
+  justify-content:space-evenly; /*Distributes cards evenly in the row */
+}
+
+.project-item {
+  flex: 1 1 calc(50% - 20px); /* Two cards per row with spacing */
+  /* max-width: calc(50% - 20px); Prevents cards from exceeding half the row width */
+  box-sizing: border-box; /* Ensures padding and borders are included in width */
+}
 .proj-imgbx {
+  max-width: 300px; /* Ensures consistent size */
+  width: 100%; /* Ensure it spans available space */
+  height: 300px; /* Fix height for uniformity */
+  margin: 0 auto; /* Centers cards if fewer than 3 in a row */
   position: relative;
-  border-radius: 30px;
+  border-radius: 20px;
   overflow: hidden;
-  margin-bottom: 24px;
+  transition: transform 0.3s ease-in-out;
 }
 .proj-imgbx::before {
   content: "";
@@ -434,11 +450,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .proj-txtx {
   position: absolute;
   text-align: center;
-  top: 65%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: 0.5s ease-in-out;
   opacity: 0;
+  transition: opacity 0.5s ease-in-out;
   width: 100%;
 }
 .proj-imgbx:hover .proj-txtx {
@@ -446,16 +462,18 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   opacity: 1;
 }
 .proj-txtx h4 {
-  font-size: 30px;
-  font-weight: 700;
-  letter-spacing: 0.8px;
-  line-height: 1.1em;
+  font-size: 20px; /* Reduced size to fit smaller cards */
+  font-weight: 600; /* Slightly lighter weight for a balanced look */
+  letter-spacing: 0.5px; /* Reduced spacing for compact text */
+  line-height: 1.2em; /* Better alignment within the card */
+  margin: 5px 0; /* Add spacing around the title */
 }
 .proj-txtx span {
   font-style: italic;
-  font-weight: 400;
-  font-size: 15px;
-  letter-spacing: 0.8px;
+  font-weight: 300; /* Lighter weight for a more refined look */
+  font-size: 12px; /* Smaller font to fit within card space */
+  letter-spacing: 0.4px; /* Compact spacing for the description */
+  line-height: 1.3em; /* Slightly increased line height for readability */
 }
 .background-image-right {
   top: 20%;

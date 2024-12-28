@@ -1,8 +1,9 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
-import projImg1 from "../assets/img/project-img11.png";
-import projImg2 from "../assets/img/project-img2.png";
+import projImg1 from "../assets/img/project-img2.png";
+import projImg2 from "../assets/img/arduino_project_background.png";
 import projImg3 from "../assets/img/project-img3.png";
+import projImg4 from "../assets/img/expense_tracker_background.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
@@ -12,24 +13,33 @@ export const Projects = () => {
   const Webapp = [
     {
       title: "SplitQuick",
-      description: <p>"Developed a bill-splitting app using React for frontend development and hosted the backend on Vercel. This web application simplifies the process of dividing expenses among friends, offering a user-friendly interface and efficient functionality."</p>,
+      description: <p>"Developed a bill-splitting app using React for frontend development and hosted the backend on Vercel."</p>,
       imgUrl: projImg1,
+      link: "https://manavshahoff.github.io/SplitQuick/"
+    },
+    {
+      title: "ExpenseTracker",
+      description: <p>"Track and manage expenses effortlessly with this Spring Boot-powered application."</p>,
+      imgUrl: projImg4,
+      link: "https://github.com/Manavshahoff/expense-tracker.git"
     }
   ];
 
   const app = [
     {
-      title: "SplitQuick",
-      description: <p>"SplitQuick App"</p>,
+      title: "AI Object Tracking",
+      description: <p>"A real-time system that detects humans and dynamically moves toward them using computer vision and machine learning."</p>,
       imgUrl: projImg2,
+      link: "https://github.com/Manavshahoff/AI_Object_Tracking.git"
     }
   ];
 
   const website = [
     {
       title: "Nila Digital Studio",
-      description: <p>"Designed and developed a captivating website for Nila Digital Studio, showcasing professional photography services. Leveraging the site features an intuitive interface, dynamic image galleries, and a seamless user experience to highlight the studio's creative portfolio."</p>,
+      description: <p>"Designed and developed a captivating website for Nila Digital Studio, showcasing professional photography services."</p>,
       imgUrl: projImg3,
+      link: "https://manavshahoff.github.io/NilaDigitalStudio/"
     }
   ];
 
@@ -49,7 +59,7 @@ export const Projects = () => {
                       <Nav.Link eventKey="first">WebApp</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                      <Nav.Link eventKey="second">App</Nav.Link>
+                      <Nav.Link eventKey="second">Hardware</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
                       <Nav.Link eventKey="third">Website</Nav.Link>
@@ -58,52 +68,47 @@ export const Projects = () => {
                   <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
                     <Tab.Pane eventKey="first">
 
-                      <Row>
+                    <div className="webapp-container">
                         {
                           Webapp.map((project, index) => {
                             return (
-                              <a href="https://manavshahoff.github.io/SplitQuick/">
-                              <ProjectCard
-                                key={index}
-                                {...project}
-                                />
-                              </a>
+                              <div className="project-item" key={index}>
+
+                                <ProjectCard
+                                  {...project}
+                                  link={project.link}
+                                  />
+                              </div>
                             )
                           })
                         }
-                      </Row>
+                      </div>
                     </Tab.Pane>
                     <Tab.Pane eventKey="second">
-                    <Row>
+                    <div className="webapp-container">
                         {
                           app.map((project, index) => {
                             return (
-                              <a href="https://manavshahoff.github.io/SplitQuick/">
-                              <ProjectCard
-                                key={index}
-                                {...project}
-                                />
-                              </a>
+                                <ProjectCard
+                                  {...project}
+                                  />
                             )
                           })
                         }
-                      </Row>
+                      </div>
                     </Tab.Pane>
                     <Tab.Pane eventKey="third">
-                      <Row>
+                    <div className="webapp-container">
                           {
                             website.map((project, index) => {
                               return (
-                                <a href="https://manavshahoff.github.io/NilaDigitalStudio/">
                                 <ProjectCard
-                                  key={index}
                                   {...project}
                                   />
-                                </a>
                               )
                             })
                           }
-                        </Row>                    
+                      </div>                    
                     </Tab.Pane>
                   </Tab.Content>
                 </Tab.Container>
